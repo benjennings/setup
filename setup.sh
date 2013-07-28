@@ -55,10 +55,13 @@ echo "finder full path"
 defaults write com.apple.finder ShowPathbar -bool true
 
 echo "finder status bar"
-defaults write com.apple.finder ShowStatusBar -bool false
+defaults write com.apple.finder ShowStatusBar -bool true
 
 echo "finder change warning"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+echo "finder search location"
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 echo "finder show library"
 chflags nohidden ~/Library
@@ -73,6 +76,9 @@ echo "finder window default shows"
 defaults write com.apple.finder NewWindowTarget -string "PfHm"
 defaults write com.apple.finder NewWindowTargetPath -string "file://localhost/Users/ben/"
 
+echo "trash"
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
 echo "no ds on networks"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
@@ -85,9 +91,10 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 # DOCK
 
 echo "dock pinning"
-defaults write com.apple.dock pinning -string End
 defaults write com.apple.dock tilesize -int 38
-defaults write com.apple.dock orientation -string "right"
+
+# defaults write com.apple.dock pinning -string End
+# defaults write com.apple.dock orientation -string "right"
 
 echo "dock minimisation"
 defaults write com.apple.dock mineffect -string "scale"
@@ -116,6 +123,9 @@ defaults write com.apple.Safari NewTabBehavior -int 1
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 defaults write com.apple.Safari HomePage -string ""
 defaults write com.apple.Safari NewWindowBehavior -int 1
+defaults write com.apple.Safari NewWindowTab -int 1
+defaults write com.apple.Safari TabCreationPolicy -int 2
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
 echo "terminal"
 defaults write com.apple.Terminal "Default Window Settings" -string "Pro"
